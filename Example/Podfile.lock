@@ -1,0 +1,16 @@
+PODS:
+  - TensorFlowKit (0.1.0)
+
+DEPENDENCIES:
+  - TensorFlowKit (from `../`)
+
+EXTERNAL SOURCES:
+  TensorFlowKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TensorFlowKit: beca92b24e2882b963038586f8853fa86920254f
+
+PODFILE CHECKSUM: 1c0c5e82e93484ffa968dbd80250062b967a1b6a
+
+COCOAPODS: 1.10.1

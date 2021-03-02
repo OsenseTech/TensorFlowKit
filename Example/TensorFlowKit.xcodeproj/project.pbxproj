@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08A39C00B54D81F4D6FE9B75 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		08A39C00B54D81F4D6FE9B75 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		419806C0B1EFC4C4B5D18A79 /* Pods_TensorFlowKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51A0FCA16908631B63A24B0E /* Pods-TensorFlowKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Tests/Pods-TensorFlowKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		568DFEE09972312ED21315DC /* Pods-TensorFlowKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Example.release.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Example/Pods-TensorFlowKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,10 +43,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A3D019E08249FE7B95BA58F7 /* Pods_TensorFlowKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC3040B8376D2F1F33CB997D /* TensorFlowKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TensorFlowKit.podspec; path = ../TensorFlowKit.podspec; sourceTree = "<group>"; };
+		BC3040B8376D2F1F33CB997D /* TensorFlowKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TensorFlowKit.podspec; path = ../TensorFlowKit.podspec; sourceTree = "<group>"; };
 		BF3131ABDCB75C41B64A5025 /* Pods-TensorFlowKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Tests/Pods-TensorFlowKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA6337221BF56EE0D8A4D1B4 /* Pods-TensorFlowKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Example/Pods-TensorFlowKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E038A6F68028616B023BC6EF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E038A6F68028616B023BC6EF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,6 @@
 				BF3131ABDCB75C41B64A5025 /* Pods-TensorFlowKit_Tests.debug.xcconfig */,
 				51A0FCA16908631B63A24B0E /* Pods-TensorFlowKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = SUV34UZRXX;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = SUV34UZRXX;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -478,6 +480,7 @@
 			baseConfigurationReference = CA6337221BF56EE0D8A4D1B4 /* Pods-TensorFlowKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SUV34UZRXX;
 				INFOPLIST_FILE = TensorFlowKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +496,7 @@
 			baseConfigurationReference = 568DFEE09972312ED21315DC /* Pods-TensorFlowKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SUV34UZRXX;
 				INFOPLIST_FILE = TensorFlowKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF3131ABDCB75C41B64A5025 /* Pods-TensorFlowKit_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = SUV34UZRXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51A0FCA16908631B63A24B0E /* Pods-TensorFlowKit_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = SUV34UZRXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
