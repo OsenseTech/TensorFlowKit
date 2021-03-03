@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TensorFlowKit: 5c89f673e539b6a32a1d5d153fe3b113da6d0b83
+  TensorFlowKit: 4d9b7155daf7e5577d70134b846b40037659018e
   TensorFlowLiteC: 09f8ac75a76caeadb19bcfa694e97454cc1ecf87
   TensorFlowLiteSwift: f062dc1178120100d825d7799fd9f115b4a37fee
 

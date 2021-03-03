@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12EFD89DAC9EDDF876FBDBC0 /* Pods_TensorFlowKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D019E08249FE7B95BA58F7 /* Pods_TensorFlowKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -15,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		70A05A3A8D2836C567F388E7 /* Pods_TensorFlowKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419806C0B1EFC4C4B5D18A79 /* Pods_TensorFlowKit_Tests.framework */; };
+		AE9582D125EF349F000BD766 /* Pods_TensorFlowKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9582D025EF349F000BD766 /* Pods_TensorFlowKit_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +43,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A3D019E08249FE7B95BA58F7 /* Pods_TensorFlowKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4F233625EF41890012A7F7 /* TensorFlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TensorFlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE95828025EF2FF8000BD766 /* TensorFlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TensorFlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9582D025EF349F000BD766 /* Pods_TensorFlowKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TensorFlowKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9582E025EF34E9000BD766 /* TensorFlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TensorFlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3040B8376D2F1F33CB997D /* TensorFlowKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TensorFlowKit.podspec; path = ../TensorFlowKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF3131ABDCB75C41B64A5025 /* Pods-TensorFlowKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Tests/Pods-TensorFlowKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA6337221BF56EE0D8A4D1B4 /* Pods-TensorFlowKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-TensorFlowKit_Example/Pods-TensorFlowKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12EFD89DAC9EDDF876FBDBC0 /* Pods_TensorFlowKit_Example.framework in Frameworks */,
+				AE9582D125EF349F000BD766 /* Pods_TensorFlowKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +76,10 @@
 		3BFDABF6BEA7BB5BFB749628 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE4F233625EF41890012A7F7 /* TensorFlowKit.framework */,
+				AE9582E025EF34E9000BD766 /* TensorFlowKit.framework */,
+				AE9582D025EF349F000BD766 /* Pods_TensorFlowKit_Example.framework */,
+				AE95828025EF2FF8000BD766 /* TensorFlowKit.framework */,
 				A3D019E08249FE7B95BA58F7 /* Pods_TensorFlowKit_Example.framework */,
 				419806C0B1EFC4C4B5D18A79 /* Pods_TensorFlowKit_Tests.framework */,
 			);
@@ -421,9 +429,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -467,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -481,13 +489,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SUV34UZRXX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowLiteSwift\"",
+					"\"${PODS_ROOT}/TensorFlowLiteC/Frameworks\"",
+				);
 				INFOPLIST_FILE = TensorFlowKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -497,13 +511,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SUV34UZRXX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowLiteSwift\"",
+					"\"${PODS_ROOT}/TensorFlowLiteC/Frameworks\"",
+				);
 				INFOPLIST_FILE = TensorFlowKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
