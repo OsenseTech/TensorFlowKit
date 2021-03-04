@@ -281,15 +281,6 @@ class ModelDataHandler {
   }
 }
 
-private var _conversionInfoYpCbCrToARGB: vImage_YpCbCrToARGB? = {
-    var pixelRange = vImage_YpCbCrPixelRange(Yp_bias: 16, CbCr_bias: 128, YpRangeMax: 235, CbCrRangeMax: 240, YpMax: 235, YpMin: 16, CbCrMax: 240, CbCrMin: 16)
-    var infoYpCbCrToARGB = vImage_YpCbCrToARGB()
-    guard vImageConvert_YpCbCrToARGB_GenerateConversion(kvImage_YpCbCrToARGBMatrix_ITU_R_601_4!, &pixelRange, &infoYpCbCrToARGB, kvImage422CbYpCrYp8, kvImageARGB8888, vImage_Flags(kvImageNoFlags)) == kvImageNoError else {
-        return nil
-    }
-    return infoYpCbCrToARGB
-}()
-
 // MARK: - Extensions
 
 extension Data {
