@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "run_left.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "width" : 0.088000000000000009
+  }
+}

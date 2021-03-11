@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "sliding_right.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "width" : 0.10299999999999999
+  }
+}

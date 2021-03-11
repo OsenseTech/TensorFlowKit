@@ -1,0 +1,65 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "angry_left.arreferenceimage"
+    },
+    {
+      "filename" : "angry_right.arreferenceimage"
+    },
+    {
+      "filename" : "back.arreferenceimage"
+    },
+    {
+      "filename" : "cheerleading_left.arreferenceimage"
+    },
+    {
+      "filename" : "cheerleading_right.arreferenceimage"
+    },
+    {
+      "filename" : "front.arreferenceimage"
+    },
+    {
+      "filename" : "hit.arreferenceimage"
+    },
+    {
+      "filename" : "left.arreferenceimage"
+    },
+    {
+      "filename" : "logo.arreferenceimage"
+    },
+    {
+      "filename" : "pitch_left.arreferenceimage"
+    },
+    {
+      "filename" : "pitch_right.arreferenceimage"
+    },
+    {
+      "filename" : "rakuten.arreferenceimage"
+    },
+    {
+      "filename" : "right.arreferenceimage"
+    },
+    {
+      "filename" : "run_left.arreferenceimage"
+    },
+    {
+      "filename" : "run_right.arreferenceimage"
+    },
+    {
+      "filename" : "salute.arreferenceimage"
+    },
+    {
+      "filename" : "sit_right.arreferenceimage"
+    },
+    {
+      "filename" : "sliding_left.arreferenceimage"
+    },
+    {
+      "filename" : "sliding_right.arreferenceimage"
+    }
+  ]
+}
