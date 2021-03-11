@@ -109,4 +109,18 @@ extension CVPixelBuffer {
         return rgbBuffer
     }
     
+    public func rotate(size: CGSize) -> CVPixelBuffer? {
+        let ciImage = CIImage(cvPixelBuffer: self)
+        let ciContext = CIContext(options: nil)
+        let cgImage = ciContext.createCGImage(ciImage, from: CGRect(origin: CGPoint.zero,
+                                                                    size: CGSize(width: ciImage.extent.size.width,
+                                                                                 height: ciImage.extent.size.height)))
+        let outputSize = CGSize(width: size.height, height: size.width)
+        guard let resizedCGImage = cgImage?.rotateImage(size: outputSize) else { return nil }
+        let uiImage = UIImage(cgImage: resizedCGImage)
+        guard let buffer = uiImage.convertToPixelBuffer() else { return nil }
+        
+        return buffer
+    }
+    
 }
