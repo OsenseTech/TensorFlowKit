@@ -67,7 +67,7 @@ public class ModelDataHandler {
     
     /// A failable initializer for `ModelDataHandler`. A new instance is created if the model and
     /// labels files are successfully loaded from the app's main bundle. Default `threadCount` is 1.
-    init?(modelFileInfo: FileInfo, labelsFileInfo: FileInfo, threadCount: Int = 1) {
+    public init?(modelFileInfo: FileInfo, labelsFileInfo: FileInfo, threadCount: Int = 1) {
         let modelFilename = modelFileInfo.name
         
         // Construct the path to the model file.
