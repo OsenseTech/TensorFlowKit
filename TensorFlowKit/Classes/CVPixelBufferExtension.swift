@@ -124,3 +124,70 @@ extension CVPixelBuffer {
     }
     
 }
+
+extension CGImage {
+    
+    fileprivate func rotateImage(size: CGSize) -> CGImage? {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bytesPerPixel: CGFloat = 4
+        let bytesPerRow = bytesPerPixel * size.width
+        let bitsPerComponent = 8
+        
+        let context = CGContext(data: nil,
+                                width: Int(size.width),
+                                height: Int(size.height),
+                                bitsPerComponent: bitsPerComponent,
+                                bytesPerRow: Int(bytesPerRow),
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        
+        context?.rotate(by: -(CGFloat(Double.pi / 2)))
+        context?.translateBy(x: -size.height, y: 0)
+        context?.draw(self, in: CGRect(origin: CGPoint.zero, size: CGSize(width: size.height, height: size.width)))
+        
+        return context?.makeImage()
+    }
+    
+}
+
+extension UIImage {
+    
+    fileprivate func convertToPixelBuffer() -> CVPixelBuffer? {
+        let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
+                          kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer: CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault,
+                                         Int(self.size.width),
+                                         Int(self.size.height),
+                                         kCVPixelFormatType_32ARGB,
+                                         attributes,
+                                         &pixelBuffer)
+        guard status == kCVReturnSuccess else { return nil }
+        
+        guard let buffer = pixelBuffer else { return nil }
+        CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(buffer)
+        
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        guard let context = CGContext(data: pixelData,
+                                      width: Int(self.size.width),
+                                      height: Int(self.size.height),
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: CVPixelBufferGetBytesPerRow(buffer),
+                                      space: rgbColorSpace,
+                                      bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
+            return nil
+        }
+        
+        context.translateBy(x: 0, y: self.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        
+        UIGraphicsPushContext(context)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: 0))
+        
+        return buffer
+    }
+    
+}
