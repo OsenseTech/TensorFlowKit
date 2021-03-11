@@ -13,6 +13,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		657C59B425F9ED4300F179CB /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 657C59B225F9ED4300F179CB /* labels.txt */; };
+		657C59B525F9ED4300F179CB /* tiny_ep499_576_320.lite in Resources */ = {isa = PBXBuildFile; fileRef = 657C59B325F9ED4300F179CB /* tiny_ep499_576_320.lite */; };
 		7D828342A3B5526667EC8345 /* libPods-TensorFlowKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD60CC0A4E299B8AF9732EB /* libPods-TensorFlowKit_Example.a */; };
 		953FFB4E5F4B98618C688290 /* libPods-TensorFlowKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFB4D8165020BECD790715B /* libPods-TensorFlowKit_Tests.a */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		607FACE51AFB9204008FA782 /* TensorFlowKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TensorFlowKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		657C59B225F9ED4300F179CB /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
+		657C59B325F9ED4300F179CB /* tiny_ep499_576_320.lite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiny_ep499_576_320.lite; sourceTree = "<group>"; };
 		A3D019E08249FE7B95BA58F7 /* Pods_TensorFlowKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F233625EF41890012A7F7 /* TensorFlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TensorFlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE95828025EF2FF8000BD766 /* TensorFlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TensorFlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				657C59B325F9ED4300F179CB /* tiny_ep499_576_320.lite */,
+				657C59B225F9ED4300F179CB /* labels.txt */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -257,7 +263,9 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				657C59B525F9ED4300F179CB /* tiny_ep499_576_320.lite in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				657C59B425F9ED4300F179CB /* labels.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
