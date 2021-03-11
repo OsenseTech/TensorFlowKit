@@ -49,8 +49,6 @@ public class ModelDataHandler {
     
     private let batchSize = 1
     private let inputChannels = 3
-    private let inputWidth = 320
-    private let inputHeight = 576
     
     // MARK: - Private Properties
     
@@ -99,7 +97,7 @@ public class ModelDataHandler {
     // MARK: - Internal Methods
     
     /// Performs image preprocessing, invokes the `Interpreter`, and processes the inference results.
-    func runModel(onFrame pixelBuffer: CVPixelBuffer) -> Result? {
+    func runModel(buffer pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> Result? {
         let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
         assert(sourcePixelFormat == kCVPixelFormatType_32BGRA ||
                 sourcePixelFormat == kCVPixelFormatType_32ARGB ||
@@ -109,8 +107,7 @@ public class ModelDataHandler {
         assert(imageChannels >= inputChannels)
         
         // Crops the image to the biggest square in the center and scales it down to model dimensions.
-        let scaledSize = CGSize(width: inputWidth, height: inputHeight)
-        guard let thumbnailPixelBuffer = pixelBuffer.centerThumbnail(ofSize: scaledSize) else {
+        guard let thumbnailPixelBuffer = pixelBuffer.centerThumbnail(ofSize: size) else {
             return nil
         }
         
@@ -122,7 +119,7 @@ public class ModelDataHandler {
             // Remove the alpha component from the image buffer to get the RGB data.
             guard let rgbData = rgbDataFromBuffer(
                 thumbnailPixelBuffer,
-                byteCount: batchSize * inputWidth * inputHeight * inputChannels,
+                byteCount: batchSize * Int(size.width) * Int(size.height) * inputChannels,
                 isModelQuantized: inputTensor.dataType == .uInt8
             ) else {
                 print("Failed to convert the image buffer to RGB data.")
