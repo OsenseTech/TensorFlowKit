@@ -41,8 +41,7 @@ extension CVPixelBuffer {
         
         if imageWidth > imageHeight {
             originX = (imageWidth - imageHeight) / 2
-        }
-        else {
+        } else {
             originY = (imageHeight - imageWidth) / 2
         }
         
@@ -58,7 +57,7 @@ extension CVPixelBuffer {
             rowBytes: inputImageRowBytes)
         
         let thumbnailRowBytes = Int(size.width) * imageChannels
-        guard  let thumbnailBytes = malloc(Int(size.height) * thumbnailRowBytes) else {
+        guard let thumbnailBytes = malloc(Int(size.height) * thumbnailRowBytes) else {
             return nil
         }
         
@@ -75,7 +74,6 @@ extension CVPixelBuffer {
         }
         
         let releaseCallBack: CVPixelBufferReleaseBytesCallback = {mutablePointer, pointer in
-            
             if let pointer = pointer {
                 free(UnsafeMutableRawPointer(mutating: pointer))
             }
