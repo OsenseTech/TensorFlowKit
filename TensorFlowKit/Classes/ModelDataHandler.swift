@@ -96,6 +96,19 @@ public class ModelDataHandler {
     
     // MARK: - Internal Methods
     
+    public func recognize(pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> String? {
+        guard let rgbBuffer = pixelBuffer.convertTo32BGRAFormat() else { return nil }
+        
+        let result = runModel(buffer: rgbBuffer, scaledSize: size)
+        guard let inference = result?.inferences.first else { return nil }
+        
+        if inference.confidence > 0.5 {
+            return inference.label
+        } else {
+            return nil
+        }
+    }
+    
     /// Performs image preprocessing, invokes the `Interpreter`, and processes the inference results.
     func runModel(buffer pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> Result? {
         let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
