@@ -94,8 +94,6 @@ public class ModelDataHandler {
         loadLabels(fileInfo: labelsFileInfo)
     }
     
-    // MARK: - Internal Methods
-    
     public func recognize(pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> String? {
         guard let rgbBuffer = pixelBuffer.convertTo32BGRAFormat() else { return nil }
         
