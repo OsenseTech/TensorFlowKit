@@ -64,13 +64,8 @@ class ViewController: UIViewController {
     
     private func recognize(pixelBuffer: CVPixelBuffer) {
         let type = CVPixelBufferGetPixelFormatType(pixelBuffer)
-        guard type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange else {
-            return
-        }
-        
-        guard let _ = CVPixelBufferGetBaseAddress(pixelBuffer) else {
-            return
-        }
+        guard type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange else { return }
+        guard let _ = CVPixelBufferGetBaseAddress(pixelBuffer) else { return }
         
         recognizeQueue.addOperation { [self] in
             let size = CGSize(width: 320, height: 576)
