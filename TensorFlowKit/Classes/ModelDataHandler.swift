@@ -106,9 +106,12 @@ public class ModelDataHandler {
         guard let rotatedBuffer = pixelBuffer.rotate(size: size) else { return nil }
         guard let rgbBuffer = rotatedBuffer.convertTo32BGRAFormat() else { return nil }
         
-        let result = runModel(buffer: rgbBuffer, scaledSize: size)
-        guard let inference = result?.inferences.first else { return nil }
+        guard let result = runModel(buffer: rgbBuffer, scaledSize: size) else { return nil }
+        #if DEBUG
+        print(result.inferences)
+        #endif
         
+        guard let inference = result.inferences.first else { return nil }
         if inference.confidence > threshold {
             return inference.label
         } else {
