@@ -27,7 +27,7 @@ TODO: Add long description of the pod here.
   s.author           = { '蘇健豪' => 'jenhausu@osensetech.com' }
   s.source           = { :git => 'https://github.com/蘇健豪/TensorFlowKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.swift_versions   = ['5.0']
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'TensorFlowKit/Classes/**/*'
@@ -39,4 +39,5 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'TensorFlowLiteSwift'
+   s.static_framework = true
 end
