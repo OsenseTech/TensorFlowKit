@@ -30,7 +30,15 @@ struct Inference {
 }
 
 /// Information about a model file or labels file.
-public typealias FileInfo = (name: String, extension: String)
+public struct FileInfo {
+    let name: String
+    let type: String
+    
+    public init(name: String, type: String) {
+        self.name = name
+        self.type = type
+    }
+}
 
 /// This class handles all data preprocessing and makes calls to run inference on a given frame
 /// by invoking the `Interpreter`. It then formats the inferences obtained and returns the top N
@@ -65,13 +73,13 @@ public class ModelDataHandler {
     
     /// A failable initializer for `ModelDataHandler`. A new instance is created if the model and
     /// labels files are successfully loaded from the app's main bundle. Default `threadCount` is 1.
-    public init?(modelFileInfo: FileInfo, labelsFileInfo: FileInfo, threadCount: Int = 1) {
+    public init?(model modelFileInfo: FileInfo, label labelsFileInfo: FileInfo, threadCount: Int = 1) {
         let modelFilename = modelFileInfo.name
         
         // Construct the path to the model file.
         guard let modelPath = Bundle.main.path(
             forResource: modelFilename,
-            ofType: modelFileInfo.extension
+            ofType: modelFileInfo.type
         ) else {
             print("Failed to load the model file with name: \(modelFilename).")
             return nil
@@ -94,13 +102,14 @@ public class ModelDataHandler {
         loadLabels(fileInfo: labelsFileInfo)
     }
     
-    public func recognize(pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> String? {
-        guard let rgbBuffer = pixelBuffer.convertTo32BGRAFormat() else { return nil }
+    public func recognize(pixelBuffer: CVPixelBuffer, scaledSize size: CGSize, confidenceThreshold threshold: Float = 0.5) -> String? {
+        guard let rotatedBuffer = pixelBuffer.rotate(size: size) else { return nil }
+        guard let rgbBuffer = rotatedBuffer.convertTo32BGRAFormat() else { return nil }
         
         let result = runModel(buffer: rgbBuffer, scaledSize: size)
         guard let inference = result?.inferences.first else { return nil }
         
-        if inference.confidence > 0.5 {
+        if inference.confidence > threshold {
             return inference.label
         } else {
             return nil
@@ -194,7 +203,7 @@ public class ModelDataHandler {
     /// Loads the labels from the labels file and stores them in the `labels` property.
     private func loadLabels(fileInfo: FileInfo) {
         let filename = fileInfo.name
-        let fileExtension = fileInfo.extension
+        let fileExtension = fileInfo.type
         guard let fileURL = Bundle.main.url(forResource: filename, withExtension: fileExtension) else {
             fatalError("Labels file not found in bundle. Please add a labels file with name " +
                         "\(filename).\(fileExtension) and try again.")

@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     }()
     
     private lazy var modelDataHandler: ModelDataHandler? = {
-        ModelDataHandler(modelFileInfo: FileInfo(name: "tiny_ep499_576_320", extension: "lite"),
-                         labelsFileInfo: FileInfo(name: "labels", extension: "txt"))
+        ModelDataHandler(model: FileInfo(name: "tiny_ep499_576_320", type: "lite"),
+                         label: FileInfo(name: "labels", type: "txt"))
     }()
     
     private var pixelBuffer: CVPixelBuffer?
@@ -74,9 +74,7 @@ class ViewController: UIViewController {
         
         recognizeQueue.addOperation { [self] in
             let size = CGSize(width: 320, height: 576)
-            guard let rotatedBuffer = pixelBuffer.rotate(size: size) else { return }
-            
-            if let label = modelDataHandler?.recognize(pixelBuffer: rotatedBuffer, scaledSize: size) {
+            if let label = modelDataHandler?.recognize(pixelBuffer: pixelBuffer, scaledSize: size) {
                 print(label)
             }
         }
