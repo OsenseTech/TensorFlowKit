@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     private lazy var modelDataHandler: ModelDataHandler? = {
         ModelDataHandler(model: FileInfo(name: "tiny_ep499_576_320", type: "lite"),
-                         label: FileInfo(name: "labels", type: "txt"))
+                         label: FileInfo(name: "labels", type: "txt"),
+                         scaledSize: CGSize(width: 320, height: 576))
     }()
     
     private var pixelBuffer: CVPixelBuffer?
@@ -68,8 +69,7 @@ class ViewController: UIViewController {
         guard let _ = CVPixelBufferGetBaseAddress(pixelBuffer) else { return }
         
         recognizeQueue.addOperation { [self] in
-            let size = CGSize(width: 320, height: 576)
-            if let label = modelDataHandler?.recognize(pixelBuffer: pixelBuffer, scaledSize: size) {
+            if let label = modelDataHandler?.recognize(pixelBuffer: pixelBuffer) {
                 print(label)
             }
         }
