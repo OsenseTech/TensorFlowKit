@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '蘇健豪' => 'jenhausu@osensetech.com' }
-  s.source           = { :git => 'https://github.com/蘇健豪/TensorFlowKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/OsenseTech/TensorFlowKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.swift_versions   = ['5.0']
   s.ios.deployment_target = '11.0'
