@@ -40,6 +40,10 @@ public struct FileInfo {
     }
 }
 
+enum ModelHandlerError: Error {
+    case modelNotFound
+}
+
 /// This class handles all data preprocessing and makes calls to run inference on a given frame
 /// by invoking the `Interpreter`. It then formats the inferences obtained and returns the top N
 /// results for a successful inference.
@@ -48,7 +52,7 @@ public class ModelDataHandler {
     // MARK: - Internal Properties
     
     /// The current thread count used by the TensorFlow Lite Interpreter.
-    private let threadCount: Int
+    private var threadCount: Int = 1
     
     private let resultCount = 3
     private let threadCountLimit = 10
