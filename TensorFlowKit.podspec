@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'TensorFlowKit'
   s.version          = '0.1.0'
-  s.summary          = 'Make TensorFlow more easy to use.'
+  s.summary          = 'Make TensorFlowLite easy to use.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Just a few lines of code to set up, all the hard work this pod will take care of it.
                        DESC
 
   s.homepage         = 'https://github.com/OsenseTech/TensorFlowKit'
