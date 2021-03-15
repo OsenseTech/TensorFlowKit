@@ -22,22 +22,17 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/OsenseTech/TensorFlowKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '蘇健豪' => 'jenhausu@osensetech.com' }
   s.source           = { :git => 'https://github.com/OsenseTech/TensorFlowKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.swift_versions   = ['5.0']
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'TensorFlowKit/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'TensorFlowKit' => ['TensorFlowKit/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'TensorFlowLiteSwift'
-   s.static_framework = true
+  s.dependency 'TensorFlowLiteSwift'
+  s.static_framework = true
+  
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
