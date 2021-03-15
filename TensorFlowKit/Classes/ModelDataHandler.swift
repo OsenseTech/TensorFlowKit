@@ -72,11 +72,14 @@ public class ModelDataHandler {
     // MARK: - Initialization
     
     /// A failable initializer for `ModelDataHandler`. A new instance is created if the model and
-    /// labels files are successfully loaded from the app's main bundle. Default `threadCount` is 1.
+    /// labels files are successfully loaded from the app's main bundle.
+    /// - Parameters:
+    ///   - modelFileInfo: Model name and type.
+    ///   - labelsFileInfo: Label text name and type.
+    ///   - threadCount: default is 1
     public init?(model modelFileInfo: FileInfo, label labelsFileInfo: FileInfo, threadCount: Int = 1) {
         let modelFilename = modelFileInfo.name
         
-        // Construct the path to the model file.
         guard let modelPath = Bundle.main.path(
             forResource: modelFilename,
             ofType: modelFileInfo.type
@@ -85,20 +88,17 @@ public class ModelDataHandler {
             return nil
         }
         
-        // Specify the options for the `Interpreter`.
         self.threadCount = threadCount
         var options = Interpreter.Options()
         options.threadCount = threadCount
         do {
-            // Create the `Interpreter`.
             interpreter = try Interpreter(modelPath: modelPath, options: options)
-            // Allocate memory for the model's input `Tensor`s.
             try interpreter.allocateTensors()
         } catch let error {
             print("Failed to create the interpreter with error: \(error.localizedDescription)")
             return nil
         }
-        // Load the classes listed in the labels file.
+        
         loadLabels(fileInfo: labelsFileInfo)
     }
     
