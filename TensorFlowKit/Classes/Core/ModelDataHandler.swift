@@ -52,7 +52,7 @@ public class ModelDataHandler {
     // MARK: - Internal Properties
     
     /// The current thread count used by the TensorFlow Lite Interpreter.
-    private var threadCount: Int = 1
+    private var threadCount: Int
     
     private let resultCount = 3
     private let threadCountLimit = 10
@@ -61,6 +61,8 @@ public class ModelDataHandler {
     
     private let batchSize = 1
     private let inputChannels = 3
+    private let scaledSize: CGSize
+    private let confidenceThreshold: Float
     
     // MARK: - Private Properties
     
@@ -81,7 +83,7 @@ public class ModelDataHandler {
     ///   - modelFileInfo: Model name and type.
     ///   - labelsFileInfo: Label text name and type.
     ///   - threadCount: default is 1
-    public init?(model modelFileInfo: FileInfo, label labelsFileInfo: FileInfo, threadCount: Int = 1) {
+    public init?(model modelFileInfo: FileInfo, label labelsFileInfo: FileInfo, scaledSize size: CGSize, confidenceThreshold threshold: Float = 0.5, threadCount: Int = 1) {
         let modelFilename = modelFileInfo.name
         
         guard let modelPath = Bundle.main.path(
@@ -91,7 +93,8 @@ public class ModelDataHandler {
             print("Failed to load the model file with name: \(modelFilename).")
             return nil
         }
-        
+        self.scaledSize = size
+        self.confidenceThreshold = threshold
         self.threadCount = threadCount
         var options = Interpreter.Options()
         options.threadCount = threadCount
@@ -106,17 +109,17 @@ public class ModelDataHandler {
         loadLabels(fileInfo: labelsFileInfo)
     }
     
-    public func recognize(pixelBuffer: CVPixelBuffer, scaledSize size: CGSize, confidenceThreshold threshold: Float = 0.5) -> String? {
-        guard let rotatedBuffer = pixelBuffer.rotate(size: size) else { return nil }
+    public func recognize(pixelBuffer: CVPixelBuffer) -> String? {
+        guard let rotatedBuffer = pixelBuffer.rotate(size: scaledSize) else { return nil }
         guard let rgbBuffer = rotatedBuffer.convertTo32BGRAFormat() else { return nil }
         
-        guard let result = runModel(buffer: rgbBuffer, scaledSize: size) else { return nil }
+        guard let result = runModel(buffer: rgbBuffer, scaledSize: scaledSize) else { return nil }
         #if DEBUG
         print(result.inferences)
         #endif
         
         guard let inference = result.inferences.first else { return nil }
-        if inference.confidence > threshold {
+        if inference.confidence > confidenceThreshold {
             return inference.label
         } else {
             return nil

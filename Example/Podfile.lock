@@ -1,5 +1,8 @@
 PODS:
   - TensorFlowKit (0.1.0):
+    - TensorFlowKit/Core (= 0.1.0)
+    - TensorFlowLiteSwift
+  - TensorFlowKit/Core (0.1.0):
     - TensorFlowLiteSwift
   - TensorFlowLiteC (2.4.0):
     - TensorFlowLiteC/Core (= 2.4.0)
@@ -22,7 +25,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TensorFlowKit: 6be87e411db6d1a6a9e263f56ed95efff70685aa
+  TensorFlowKit: c2f9ed31d4dc749b4b4be09af3707893c0f3bc90
   TensorFlowLiteC: 09f8ac75a76caeadb19bcfa694e97454cc1ecf87
   TensorFlowLiteSwift: f062dc1178120100d825d7799fd9f115b4a37fee
 

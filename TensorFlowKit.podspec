@@ -27,12 +27,21 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/OsenseTech/TensorFlowKit.git', :tag => s.version.to_s }
   s.swift_versions   = ['5.0']
   s.ios.deployment_target = '11.0'
-
-  s.source_files = 'TensorFlowKit/Classes/**/*'
-
+  
   s.dependency 'TensorFlowLiteSwift'
   s.static_framework = true
   
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  
+  s.default_subspecs = 'Core'
+  s.subspec 'Core' do |sp|
+      sp.source_files = 'TensorFlowKit/Classes/Core/*'
+  end
+  
+  s.subspec 'ObjC' do |sp|
+      sp.source_files = 'TensorFlowKit/Classes/ObjC/*'
+      sp.dependency 'TensorFlowKit/Core'
+  end
+  
 end
