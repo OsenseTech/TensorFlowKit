@@ -1,5 +1,5 @@
 import XCTest
-import TensorFlowKit
+@testable import TensorFlowKit
 import Foundation
 
 class TestClassificationPerformance: XCTestCase {
