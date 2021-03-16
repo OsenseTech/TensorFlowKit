@@ -18,15 +18,15 @@ import UIKit
 import Accelerate
 
 /// A result from invoking the `Interpreter`.
-struct Result {
+public struct Result {
     let inferenceTime: Double
-    let inferences: [Inference]
+    public let inferences: [Inference]
 }
 
 /// An inference from invoking the `Interpreter`.
-struct Inference {
+public struct Inference {
     let confidence: Float
-    let label: String
+    public let label: String
 }
 
 /// Information about a model file or labels file.
@@ -127,7 +127,7 @@ public class ModelDataHandler {
     }
     
     /// Performs image preprocessing, invokes the `Interpreter`, and processes the inference results.
-    func runModel(buffer pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> Result? {
+    public func runModel(buffer pixelBuffer: CVPixelBuffer, scaledSize size: CGSize) -> Result? {
         let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
         assert(sourcePixelFormat == kCVPixelFormatType_32BGRA ||
                 sourcePixelFormat == kCVPixelFormatType_32ARGB ||

@@ -85,7 +85,6 @@ extension ViewController: ARSessionDelegate {
     
 }
 
-
 extension ViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
