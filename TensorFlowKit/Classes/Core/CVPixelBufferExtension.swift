@@ -95,7 +95,7 @@ extension CVPixelBuffer {
         return thumbnailPixelBuffer
     }
     
-    public func convertTo32BGRAFormat() -> CVPixelBuffer? {
+    func convertTo32BGRAFormat() -> CVPixelBuffer? {
         let ciImage = CIImage(cvPixelBuffer: self)
         var buffer: CVPixelBuffer?
         let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
@@ -109,7 +109,7 @@ extension CVPixelBuffer {
         return rgbBuffer
     }
     
-    public func rotate(size: CGSize) -> CVPixelBuffer? {
+    func rotate(size: CGSize) -> CVPixelBuffer? {
         let ciImage = CIImage(cvPixelBuffer: self)
         let ciContext = CIContext(options: nil)
         let cgImage = ciContext.createCGImage(ciImage, from: CGRect(origin: CGPoint.zero,
