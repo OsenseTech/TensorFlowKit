@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import CoreImage
 import TensorFlowLite
-import UIKit
 import Accelerate
 
 /// A result from invoking the `Interpreter`.
